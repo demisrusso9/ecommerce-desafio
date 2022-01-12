@@ -1,0 +1,135 @@
+@import "../variables_colors.scss";
+@import "../functions.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-items: space-between;
+  padding: 1rem;
+  gap: 4rem;
+  height: 100%;
+  background-color: $semi-white;
+
+  .products {
+    @include DisplayFlex(column, normal, flex-start);
+    cursor: pointer;
+    gap: 2rem;
+
+    > div {
+      @include DisplayFlex(row, center, space-between);
+      height: 70px;
+      border-radius: 0 30px 30px 0;
+      transition: 0.5s;
+      max-width: 500px;
+
+      &:hover {
+        background-color: $primary;
+        box-shadow: 0 2px 20px $primary;
+      }
+
+      figure {
+        @include DisplayFlex(column, center, center);
+        height: inherit;
+        width: 10rem;
+        overflow: hidden;
+
+        img {
+          object-fit: cover;
+          height: 6rem;
+          width: 9rem;
+        }
+      }
+
+      .display {
+        width: 100%;
+
+        span {
+          @include DisplayFlex(column, center, center);
+          font-weight: 600;
+        }
+
+        .details {
+          @include DisplayFlex(row, center, space-between);
+          margin: 1rem 1rem 0 1rem;
+
+          small {
+            font-weight: 300;
+          }
+
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+
+      svg {
+        transition: 0.5s;
+        margin-right: 20px;
+
+        &:hover {
+          color: $secondary;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .checkout {
+    @include DisplayFlex(column, normal, space-between);
+    max-height: 200px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 40px white;
+    border: 1px solid hsl(0%, 0%, 90%);
+    border-radius: 30px;
+    padding: 1rem;
+
+    div {
+      @include DisplayFlex(column, normal, space-between);
+
+      h1 {
+        font-weight: 300;
+        font-size: 2.5rem;
+        text-align: start;
+      }
+    }
+
+    .prices {
+      @include DisplayFlex(column, flex-start, flex-start);
+      width: 100%;
+
+      p {
+        font-weight: 300;
+        font-size: 1.5rem;
+
+        strong {
+          margin-left: 1rem;
+        }
+
+        &:first-child strong {
+          font-weight: 400;
+        }
+      }
+
+      p + p {
+        margin: 0.3rem 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    .checkout {
+      grid-area: 1;
+
+      .prices {
+        width: 100%;
+      }
+    }
+  }
+}

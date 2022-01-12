@@ -1,4 +1,16 @@
-# Getting Started with Create React App
+Os produtos devem ser renderizados dinamicamente através do products.json anexado, assets.zip anexados também (Feito)
+
+Os valores exibidos no checkout (frete, subtotal e total) devem ser calculados dinamicamente (Feito)
+
+O usuário poderá adicionar e remover produtos do carrinho (Feito)
+
+O usuário poderá ordenar os produtos por preço, popularidade (score) e ordem alfabética.
+
+A cada produto adicionado, deve-se somar R$ 10,00 ao frete. (Feito)
+
+O frete é grátis para compras acima de R$ 250,00. (Feito)
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -43,4 +55,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To learn React, check out the [React documentation](https://reactjs.org/). -->

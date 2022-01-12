@@ -1,0 +1,183 @@
+@import "../variables_colors.scss";
+@import "../functions.scss";
+// 134
+
+.container {
+  padding: 0 1.5rem 1.5rem;
+  background-color: $semi-white;
+
+  .filter {
+    @include DisplayFlex(row, center, center);
+    margin: 1rem 0;
+    gap: 10px;
+
+    .iconButton {
+      cursor: pointer;
+
+      input {
+        display: none;
+      }
+
+      input[type="radio"]:checked ~ span {
+        background-color: $primary;
+        color: hsl(0, 0%, 100%);
+        box-shadow: 0 2px 20px $primary;
+      }
+
+      span {
+        @include DisplayFlex(row, center, center);
+        background: hsl(0, 0%, 26%);
+        color: hsl(0, 0%, 50%);
+        padding: 0.5rem 1.4rem;
+        border-radius: 0.2rem;
+        font-size: 1rem;
+        text-shadow: 0 1px 4px hsl(0%, 0%, 0%, 0.5);
+        user-select: none;
+        transition: 0.5s;
+
+        svg {
+          margin-right: 0.8rem;
+        }
+      }
+    }
+
+    .cart {
+      @include DisplayFlex(row, center, center);
+      cursor: pointer;
+
+      position: relative;
+      top: -5px;
+      right: -10px;
+      color: #000;
+      height: 30px;
+      width: 30px;
+      font-size: 0.8rem;
+      border-radius: 100%;
+      text-decoration: none;
+
+      span {
+        @include DisplayFlex(row, center, center);
+        position: absolute;
+        top: -7px;
+        right: -10px;
+        background: $primary;
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
+        font-size: 0.8rem;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .catalog {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+
+    & > div {
+      @include DisplayFlex(column, center, center);
+      position: relative;
+      width: 100%;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: rgba(136, 165, 191, 0.48) 0px 2px 16px 0px, rgba(255, 255, 255, 0.8) 0px -2px 16px 0px;
+
+      > svg {
+        position: absolute;
+        top: 0;
+        right: 0px;
+        margin: 0.5rem 0.5rem 0;
+        color: $primary;
+        height: 30px;
+        width: 30px;
+        transition: 0.5s;
+      }
+
+      .details {
+        @include DisplayFlex(row, center, space-evenly);
+        width: 100%;
+        padding: 0.8rem 1.8rem;
+
+        span:first-of-type {
+          font-size: 0.8rem;
+        }
+        span:last-of-type {
+          font-weight: 600;
+        }
+      }
+
+      .quantity {
+        @include DisplayFlex(row, center, center);
+        padding: 0rem 0 1rem;
+
+        label {
+          margin-right: 1.2rem;
+        }
+
+        input {
+          text-align: center;
+          width: 40px;
+
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+        }
+      }
+
+      img {
+        user-select: none;
+        height: 9rem;
+        width: 8rem;
+        max-width: 100%;
+        object-fit: contain;
+      }
+
+      button {
+        @include DisplayFlex(row, center, center);
+        cursor: pointer;
+        user-select: none;
+        border: none;
+        height: 1.8rem;
+        width: 100%;
+        background-color: $primary;
+        transition: 0.5s;
+
+        &:hover {
+          background-color: $primary;
+          box-shadow: 0 2px 20px $primary;
+        }
+
+        svg {
+          margin-right: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1450px) {
+  .container .catalog {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1120px) {
+  .container .catalog {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 920px) {
+  .container .catalog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .container .catalog {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
